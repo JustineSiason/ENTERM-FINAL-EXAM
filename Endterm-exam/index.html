@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CleanEarth - Environmental Action" />
+    <title>CleanEarth | About Us</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img src="pages/logo.png" alt="CleanEarth Logo" class="logo" />
+        <h1>CleanEarth</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a data-page="home">Home</a></li>
+          <li><a data-page="about">About Us</a></li>
+          <li><a data-page="activities">Activities</a></li>
+          <li><a data-page="join">Join Us</a></li>
+          <li><a data-page="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="content"></main>
+
+    <footer>
+      <p>&copy; 2025 CleanEarth Initiative | Designed by Team Asenso</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const pages = {
+          home: `
+            <section>
+            <h1>Welcome to CleanEarth</h1>
+            <h2><p><span id="typing-text"></span></p></h2>
+            <p>
+              CleanEarth is a youth-led initiative dedicated to promoting sustainability, raising environmental 
+              awareness, and <br>inspiring community action. <br> <br>
+              We believe small actions can make a big impact — whether it’s through clean-up drives, education 
+              <br>campaigns, or digital advocacy.</br>
+            </p>
+            <p>
+              Join us in building a cleaner, greener future for everyone. From local eco-projects to global 
+              awareness <br>efforts, we're making a difference one step at a time.</br>
+            </p>
+            <p><button id="explore-btn">Explore Our Work</button></p>
+          </section>
+          `,
+          about: `
+              <section>
+              <h2>Our Mission</h2>
+              <p>
+                We aim to inspire environmental action through community-led initiatives.
+              </p>
+            </section>
+
+              <section>
+            <h2>Our Team</h2>
+            <ul>
+              <li>
+                <strong>Manteshwar Boparai</strong> - Coordinator
+                <button class="bio-toggle">Show Bio</button>
+                <p class="bio" hidden>
+                  Mantesh has led over 50 eco-projects in urban areas since 2020.
+                </p>
+              </li>
+              <li>
+                <strong>Ais Pacheco</strong> - Outreach Lead
+                <button class="bio-toggle">Show Bio</button>
+                <p class="bio" hidden>
+                  Ais runs educational workshops for schools and local youth groups.
+                </p>
+              </li>
+              <li>
+                <strong>Justine Siason</strong> - Deputy Coordinator
+                <button class="bio-toggle">Show Bio</button>
+                <p class="bio" hidden>
+                  Justine supports strategic planning and leads key initiatives to expand
+                  the team's impact.
+                </p>
+              </li>
+              <li>
+                <strong>Nolan Marmeto</strong> - Media & Design Lead
+                <button class="bio-toggle">Show Bio</button>
+                <p class="bio" hidden>
+                  Nolan creates visual content and manages the team's digital branding.
+                </p>
+              </li>
+              <li>
+                <strong>Pj Laud</strong> - Community Engagement Officer
+                <button class="bio-toggle">Show Bio</button>
+                <p class="bio" hidden>
+                  Pj coordinates with local residents to support community-driven efforts.
+                </p>
+              </li>
+            </ul>
+          </section>
+          `,
+          activities: `
+            <section>
+              <h2>Our Activities</h2>
+              <div class="cards">
+                <div class="card">
+                  <h3>Park Clean-Up</h3>
+                  <p>Help us restore public parks every 1st Saturday.</p>
+                  <button onclick="alert('Next event: June 1, 9AM @ Central Park')">Details</button>
+                </div>
+                <div class="card">
+                  <h3>Tree Planting</h3>
+                  <p>Join us to plant native trees in urban zones.</p>
+                  <button onclick="alert('Next event: June 8, 10AM @ Riverbend')">Details</button>
+                </div>
+              </div>
+            </section>
+          `,
+          join: `
+           <section>
+          <h2>Join Us</h2>
+          <p>Be part of the CleanEarth movement! Fill out the form below to get involved in making a difference.</p>
+
+          <form id="join-form">
+            <p>
+              Name:<br />
+              <input type="text" name="name" required maxlength="50" oninput="updateNameCounter()" />
+              <small><span id="name-count">0</span>/50</small>
+            </p>
+
+            <p>
+              Email:<br />
+              <input type="email" name="email" required placeholder="name@example.com" />
+            </p>
+
+            <p>
+              Why do you want to join us?<br />
+              <textarea name="reason" rows="4" cols="40" maxlength="300" oninput="updateReasonCounter()" required></textarea>
+              <small><span id="reason-count">0</span>/300</small>
+            </p>
+
+            <p><button type="submit">Submit</button></p>
+          </form>
+        </section>
+          `,
+          contact: `
+           <section>
+            <h2>Contact Us</h2>
+            <p>You can reach out to us via email or follow us on our social platforms to stay updated.</p>
+            
+            <p>
+              Email us at: <strong id="email">info@cleanearth.org</strong>
+              <button id="copy-btn">Copy Email</button>
+            </p>
+
+            <p>Phone: <strong>+1 (555) 123-4567</strong></p>
+            <p>Address: <strong>Brgy. Villamonte, Bacolod City, Negros Occidental, 6100</strong></p>
+
+            <h3>Follow us on social media:</h3>
+            <ul>
+              <li><a href="#" target="_blank">🌿 Facebook</a></li>
+              <li><a href="#" target="_blank">🐦 Twitter</a></li>
+              <li><a href="#" target="_blank">📸 Instagram</a></li>
+              <li><a href="#" target="_blank">🎥 YouTube</a></li>
+              <li><a href="#" target="_blank">📌 Pinterest</a></li>
+            </ul>
+
+            <h3>Send us a message:</h3>
+            <form id="contact-form">
+              <p>
+                Your Name:<br />
+                <input type="text" name="contact-name" required />
+              </p>
+              <p>
+                Your Email:<br />
+                <input type="email" name="contact-email" required />
+              </p>
+              <p>
+                Message:<br />
+                <textarea name="contact-message" rows="4" required></textarea>
+              </p>
+              <p><button type="submit" class="contact-submit-btn">Send Message</button></p>
+            </form>
+          </section>
+          `,
+        };
+
+        function loadPage(page) {
+          if (!pages[page]) {
+            document.getElementById("content").innerHTML =
+              "<p>Page not found.</p>";
+            return;
+          }
+
+          document.getElementById("content").innerHTML = pages[page];
+
+          // Rebind interactions
+          if (page === "home") {
+            const text =
+              "CleanEarth is a community of volunteers dedicated to protecting our planet.";
+            let i = 0;
+            const typingEl = document.getElementById("typing-text");
+            if (typingEl) {
+              typingEl.textContent = "";
+              const typing = () => {
+                if (i < text.length) {
+                  typingEl.textContent += text.charAt(i);
+                  i++;
+                  setTimeout(typing, 30);
+                }
+              };
+              typing();
+            }
+
+            const btn = document.getElementById("explore-btn");
+            if (btn) {
+              btn.addEventListener("click", () => loadPage("activities"));
+            }
+          }
+
+          if (page === "about") {
+            document.querySelectorAll(".bio-toggle").forEach((btn) => {
+              btn.addEventListener("click", () => {
+                const bio = btn.nextElementSibling;
+                const isHidden = bio.hasAttribute("hidden");
+                bio.toggleAttribute("hidden");
+                btn.textContent = isHidden ? "Hide Bio" : "Show Bio";
+              });
+            });
+          }
+
+          if (page === "join") {
+            const input = document.querySelector('input[name="name"]');
+            const counter = document.getElementById("char-count");
+            if (input && counter) {
+              input.addEventListener("input", () => {
+                counter.textContent = input.value.length;
+              });
+            }
+
+            const form = document.getElementById("join-form");
+            if (form) {
+              form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                alert("Thank you for joining! We'll be in touch soon.");
+                form.reset();
+                if (counter) counter.textContent = "0";
+              });
+            }
+          }
+
+          if (page === "contact") {
+            const emailBtn = document.getElementById("copy-btn");
+            if (emailBtn) {
+              emailBtn.addEventListener("click", () => {
+                const email = document.getElementById("email").textContent;
+                navigator.clipboard.writeText(email);
+                alert("Email copied to clipboard!");
+              });
+            }
+          }
+
+          // Highlight active nav
+          document.querySelectorAll("nav a").forEach((link) => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("data-page") === page
+            );
+          });
+        }
+
+        // Load homepage on first visit
+        loadPage("home");
+
+        // Nav click handling
+        document.querySelectorAll("nav a").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            loadPage(link.getAttribute("data-page"));
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

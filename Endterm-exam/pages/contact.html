@@ -1,0 +1,17 @@
+<script>
+  document.getElementById("copy-btn").addEventListener("click", () => {
+    const emailText = document.getElementById("email").textContent;
+    navigator.clipboard.writeText(emailText).then(() => {
+      alert("Email address copied to clipboard!");
+    });
+  });
+
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Thank you for reaching out! We'll get back to you shortly.");
+      contactForm.reset();
+    });
+  }
+</script>

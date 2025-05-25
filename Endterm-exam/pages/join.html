@@ -1,0 +1,22 @@
+<script>
+  function updateNameCounter() {
+    const input = document.querySelector('input[name="name"]');
+    document.getElementById("name-count").textContent = input.value.length;
+  }
+
+  function updateReasonCounter() {
+    const textarea = document.querySelector('textarea[name="reason"]');
+    document.getElementById("reason-count").textContent = textarea.value.length;
+  }
+
+  const joinForm = document.getElementById("join-form");
+  if (joinForm) {
+    joinForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Thank you for joining! We'll be in touch soon.");
+      joinForm.reset();
+      document.getElementById("name-count").textContent = 0;
+      document.getElementById("reason-count").textContent = 0;
+    });
+  }
+</script>
